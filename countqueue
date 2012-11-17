@@ -5,7 +5,9 @@ require 'vendor/autoload.php';
 
 $pheanstalk = new Pheanstalk('localhost');
 
-$stats = $pheanstalk->statsTube('mailqueue');
+$queueName = isset($argv[1]) ? $argv[1] : 'mailqueue';
+
+$stats = $pheanstalk->statsTube($queueName);
 
 print_r($stats);
 	
