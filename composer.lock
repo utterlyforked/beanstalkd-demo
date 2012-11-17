@@ -1,0 +1,55 @@
+{
+    "hash": "f42ca9904323aa7ec7d8efde2fcaedff",
+    "packages": [
+        {
+            "name": "pda/pheanstalk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pda/pheanstalk",
+                "reference": "6ea53aa65bc460b4163f612a9e0e3594f28eed1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/pda/pheanstalk/zipball/6ea53aa65bc460b4163f612a9e0e3594f28eed1c",
+                "reference": "6ea53aa65bc460b4163f612a9e0e3594f28eed1c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "1351306996",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Pheanstalk": "classes/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Annesley",
+                    "email": "paul@annesley.cc",
+                    "homepage": "http://paul.annesley.cc/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP client for beanstalkd queue",
+            "homepage": "https://github.com/pda/pheanstalk",
+            "keywords": [
+                "beanstalkd"
+            ]
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "pda/pheanstalk": 20
+    }
+}

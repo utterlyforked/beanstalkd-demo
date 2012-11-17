@@ -1,0 +1,8 @@
+{
+	"require": {
+		"pda/pheanstalk": "dev-master"
+	},
+    	"autoload": {
+        	"psr-0": {"Example": "src/"}
+    	}
+}

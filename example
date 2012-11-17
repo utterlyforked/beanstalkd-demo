@@ -1,0 +1,48 @@
+#!/bin/env php
+<?php
+
+$runMode = (isset($argv[1])) ? $argv[1] : '';
+$numIterations = (isset($argv[2])) ? $argv[2] : 10;
+
+require 'Mail.php';
+require 'vendor/autoload.php';
+
+$main = new Example\Example();
+
+switch($runMode) {
+
+	case 'beanstalk':
+
+		$main->attach(new Example\Beanstalk);
+
+		break;
+		
+	case 'smtp':
+
+		$main->attach(new Example\Smtp);
+
+		break;
+
+	default:
+
+		$main->attach(new Example\Sendmail);
+}
+
+/* Grab some basic stats */ 
+$startMemory = memory_get_usage() . "\n";
+$startTime = microtime(true);
+
+/* Do the actual work */
+for($i = 0; $i < $numIterations; $i++) {
+
+	$main->sendEmail();	
+}
+/* End of work */
+
+/* Grab the updated stats */
+$endTime = microtime(true);
+$endMemory = memory_get_usage();
+
+/* Give a quick summary */
+echo 'Execution Time: '.round(($endTime - $startTime),4)." seconds \n";
+echo 'Memory Used: '.($endMemory - $startMemory) . " bytes \n";

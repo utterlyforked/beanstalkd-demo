@@ -1,0 +1,11 @@
+#!/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+$pheanstalk = new Pheanstalk('localhost');
+
+$stats = $pheanstalk->statsTube('mailqueue');
+
+print_r($stats);
+	
