@@ -1,0 +1,25 @@
+#!/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+$pheanstalk = new Pheanstalk('localhost');
+
+$job = $pheanstalk->watch('resizeimagequeue')->ignore('default')->reserve();
+	
+if($filename = $job->getData()) {
+
+	$imageUploader = new Imageuploader\Imageuploader();	
+
+	$imagineObject = $imageUploader->process($filename);
+
+	if($imageUploader->upload($imagineObject) == 200) {
+
+		$pheanstalk->delete($job);
+	}
+}
+else {
+	
+	echo 'Error in queue item'."\n";
+	$pheanstalk->delete($job);
+}

@@ -1,8 +1,11 @@
 {
 	"require": {
-		"pda/pheanstalk": "dev-master"
+		"pda/pheanstalk": "dev-master",
+		"amazonwebservices/aws-sdk-for-php": "dev-master",
+		"imagine/Imagine": "dev-develop"
 	},
     	"autoload": {
-        	"psr-0": {"Example": "src/"}
+        	"psr-0": {"Example": "src/"},
+        	"psr-0": {"Imageuploader": "src/"}
     	}
 }

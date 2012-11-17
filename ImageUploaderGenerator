@@ -1,0 +1,18 @@
+#!/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+$demo = new Imageuploader\Imageuploader();
+
+if(isset($argv[1]) && is_dir($argv[1])) {
+
+	foreach(glob($argv[1]."/*.jpg") as $filename) {
+
+		$demo->addToQueue($filename);		
+	}
+}
+else {
+
+	die('Usage is '.$argv[0].' <path containing images>'."\n");
+}
