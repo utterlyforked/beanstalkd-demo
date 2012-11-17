@@ -1,0 +1,13 @@
+#!/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+$pheanstalk = new Pheanstalk('localhost');
+
+$queueName = isset($argv[1]) ? $argv[1] : 'mailqueue';
+
+$stats = $pheanstalk->statsTube($queueName);
+
+print_r($stats);
+	
